@@ -30,27 +30,29 @@ class HomeController extends Controller
     
     public function test()
     {
-    	$categories = Category::all();
-    	return view('pages.test', [
-    			'categories' => $categories,
-    			'title' => 'Test',
-    	]);
+        $categories = Category::all();
+        return view('pages.test', [
+            'title' => 'Test',
+        ]);
     }
     
     public function index($category_id = -1)
     {
-    	$title = "All News";
-    	$categories = Category::all();
-    	if ($category_id >= 0)
-    	{
-    	    $category = Category::find($category_id);
-    	    $title = $category->name." News";
-    	}
+        $title = "All News";
+        $categories = Category::all();
+        $script = "<script>var category_id = $category_id;</script>";
+
+    	if ($category_id >= 0) {
+            $category = Category::find($category_id);
+            $title = $category->name." News";
+        }
 
         return view('pages.home', [
+            'ngController' => 'HomeController',
             'title' => $title,
             'categories' => $categories,
             'category_id' => $category_id,
+            'script' => $script,
         ]);
     }
 }

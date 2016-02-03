@@ -1,1 +1,9 @@
-# Empty CSS file for your own CSS
+
+.fixed-size-image {
+    width:320px; 
+    height:240px; 
+    background-position:center center; 
+    background-size: cover; 
+    overflow: hidden;
+}
+

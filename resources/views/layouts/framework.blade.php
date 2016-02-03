@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" {!! isset($ngController)?"ng-app=\"ngApp\" ng-controller=\"$ngController\"":"" !!} >
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,6 +32,11 @@
     </div>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/ng-infinite-scroll.min.js"></script>
+    @if (isset($script))
+    {!! $script !!}
+    @endif
     <script src="/js/scripts.js"></script>
   </body>
 </html>

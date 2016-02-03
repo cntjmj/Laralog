@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
@@ -38,9 +38,12 @@ Route::group(['middleware' => 'web'], function () {
         return redirect()->route('home');
     });
 
-    Route::get('/h0me', 'HomeController@indeks')->name('h0me');
-    Route::get('/test', 'HomeController@test')->name('test');
-    Route::get('/home/{category_id?}', 'HomeController@index')->name('home');
+    Route::get('h0me', 'HomeController@indeks')->name('h0me');
+    Route::get('test', 'HomeController@test')->name('test');
+    Route::get('home/{category_id?}', 'HomeController@index')->name('home');
+    
+    Route::get('news', 'ApiController@newsList')->name('newsList')->prefix('api');
+    Route::get('category/{category_id}/news', 'ApiController@newsList')->name('newsListByCategory')->prefix('api');
 });
 
 

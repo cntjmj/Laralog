@@ -23,7 +23,7 @@
                   <a href="javascript:;">Hi {{Auth::User()->name}}</a>
                 </li>
                 <li>
-                  <a href="javascript:;"><span class="badge pull-right">42</span></a>
+                  <a href="javascript:;"><span class="badge pull-right">@{{notification.count}}</span></a>
                 </li>
               @endif
                 <li class="dropdown">
