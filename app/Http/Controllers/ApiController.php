@@ -39,6 +39,18 @@ class ApiController extends Controller
                                  ->get();
         }
 
-        return ["newsList" => $newsList];
+        return ["newsList" => $this->parseNewsList($newsList)];
+    }
+    
+    private function parseNewsList($newsList) {
+        foreach ($newsList as $news) {
+            if (strpos($news->source, '://') === false)
+                $news->source = "//".$news->source;
+
+            if (strlen($news->content) > 300)
+                $news->content = substr($news->content, 0, 300);
+        }
+        
+        return $newsList;
     }
 }

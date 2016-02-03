@@ -17,7 +17,7 @@
     /**
      * 50.0 Define The Application And The Config
      */
-    var ngApp = angular.module("ngApp", ['infinite-scroll']);
+    var ngApp = angular.module("ngApp", ['ngSanitize', 'infinite-scroll']);
 
     ngApp.config(function($httpProvider) {
         //Enable cross domain calls
@@ -60,7 +60,7 @@
                     data  : param,
                 }).then(
                     function(response){
-                        angular.merge($scope.home.newsList, response.data.newsList);
+                    	angular.merge($scope.home.newsList, response.data.newsList);
                     },
                     function(response){
                         handleResponseError(response, $scope.home);

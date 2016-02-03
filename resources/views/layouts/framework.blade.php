@@ -33,6 +33,7 @@
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-sanitize.min.js"></script>
     <script src="/js/ng-infinite-scroll.min.js"></script>
     @if (isset($script))
     {!! $script !!}
