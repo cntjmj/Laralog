@@ -5,7 +5,7 @@
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="javascript:;">LARALOG</a>
+              <a class="navbar-brand" href="{{request()->path()=='home'?'javascript:;':url('/home')}}">LARALOG</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <form class="navbar-form navbar-left" role="search">
@@ -20,7 +20,7 @@
               <ul class="nav navbar-nav navbar-right">
               @if (Auth::check())
                 <li>
-                  <a href="javascript:;">Hi {{Auth::User()->name}}</a>
+                  <a href="{!!url('/user/profile/'.Auth::User()->id)!!}">Hi {{Auth::User()->title()}} {{Auth::User()->name}}</a>
                 </li>
                 <li>
                   <a href="javascript:;"><span class="badge pull-right">@{{notification.count}}</span></a>
@@ -39,7 +39,7 @@
                     </li>
                     @if (Auth::guest())
                     <li>
-                      <a href="/login">Login</a>
+                      <a href="javascript:;" ng-click="login()">Login</a>
                     </li>
                     <li>
                       <a href="/register">Register</a>
@@ -55,7 +55,7 @@
             </div>
           </nav>
 
-          @if (isset($categories) && count($categories) > 0)
+          @if (isset($navEntries) && count($navEntries) > 0)
             @include('layouts.nav')
           @endif
 

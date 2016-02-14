@@ -1,11 +1,8 @@
           <nav>
             <ul class="nav nav-tabs">
-              <li {!! $category_id<0?"class=\"active\"":"" !!}>
-                <a href={!!$category_id<0?"javascript:;":"/home"!!}>All</a>
-              </li>
-            @foreach ($categories as $category)
-              <li {!! $category_id==$category->id?"class=\"active\"":"" !!}>
-                <a href={!!$category_id==$category->id?"javascript:;":"/home/".$category->id!!}>{{ $category->name }}</a>
+            @foreach ($navEntries as $navEntry)
+              <li class="{!!$navEntry->get('class')!!}">
+                <a href="{!!$navEntry->get('url')!!}">{{$navEntry->get('text')}}</a>
               </li>
             @endforeach
             </ul>
