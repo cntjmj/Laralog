@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" {!! isset($ngController)?"ng-app=\"ngApp\" ng-controller=\"$ngController\"":"" !!} >
+<html lang="en" {!! isset($ngController)?"ng-app=\"ngApp\" ng-controller=\"$ngController\" ng-cloak":"" !!} >
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,6 +31,7 @@
 
     </div>
     <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/angular.min.js"></script>
     <script src="/js/angular-sanitize.min.js"></script>

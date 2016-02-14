@@ -7,3 +7,23 @@
     overflow: hidden;
 }
 
+.fixed-size-image-large {
+    width:640px; 
+    height:400px; 
+    background-position:center center; 
+    background-size: cover; 
+    overflow: hidden;
+}
+
+.fixed-size-image-small {
+    width:200px; 
+    height:200px; 
+    background-position:center center; 
+    background-size: cover; 
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.ng-display {
+    display: none;
+}
